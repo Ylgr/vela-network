@@ -1,0 +1,32 @@
+namespace org.vela.adReport
+
+participant Advertiser identified by id {
+  o String id
+  o String name
+  o String walletId
+}
+
+asset AdReport identified by id {
+  --> Advertiser advertiser
+  o String id
+  o Long click
+  o Long impression
+  o Long cv
+  o UserAction[] userActions optional
+}
+
+enum UserActionType {
+  o CLICK
+  o IMPRESSION
+  o CV
+}
+
+transaction UserAction {
+  o UserActionType type
+  o UserInfo userInfo
+}
+
+concept UserInfo {
+  o String ip
+  o String name optional
+}
