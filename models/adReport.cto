@@ -12,7 +12,7 @@ asset AdReport identified by id {
   o Long click
   o Long impression
   o Long cv
-  o UserAction[] userActions optional
+  o UserInfo[] userActions optional
 }
 
 enum UserActionType {
@@ -21,12 +21,26 @@ enum UserActionType {
   o CV
 }
 
-transaction UserAction {
-  o UserActionType type
-  o UserInfo userInfo
-}
-
 concept UserInfo {
   o String ip
-  o String name optional
+  o String name
+  o UserActionType type
+}
+
+transaction ImpressionTracking {
+  --> AdReport adReport
+  o String ip
+  o String name
+}
+
+transaction ClickTracking {
+  --> AdReport adReport
+  o String ip
+  o String name
+}
+
+transaction ConversionTracking {
+  --> AdReport adReport
+  o String ip
+  o String name
 }
