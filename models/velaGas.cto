@@ -13,6 +13,7 @@
  */
 
 namespace org.vela.gas
+import org.vela.adReport.Advertiser
 
 participant User identified by id {
   o String id
@@ -22,7 +23,7 @@ participant User identified by id {
 asset Gas identified by id {
   o String id
   o Double amount
-  --> User owner
+  --> Advertiser[] owner
   o GasTransaction[] transactions optional
 }
 
@@ -68,3 +69,17 @@ event TransactionCompleted {
   o String msg
 }
 
+transaction addAdAccount{
+  --> Gas wallet
+  --> Advertiser owner
+}
+
+transaction editAdAccount{
+  --> Gas wallet
+  --> Advertiser owner
+}
+
+transaction removeAdAccount{
+  --> Gas wallet
+  --> Advertiser owner
+}
