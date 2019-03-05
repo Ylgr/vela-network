@@ -1,5 +1,7 @@
 namespace org.vela.adReport
 
+import org.vela.gas.Gas
+
 participant Advertiser identified by id {
   o String id
   o String name
@@ -7,6 +9,7 @@ participant Advertiser identified by id {
 
 asset AdReport identified by id {
   --> Advertiser advertiser
+  --> Gas wallet
   o String id
   o String name
   o String data
