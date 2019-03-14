@@ -28,35 +28,3 @@ rule NetworkAdminSystem {
     action: ALLOW
 }
 
-rule UserSeeUpdateTheirGasOnly {
-  description: "User can see and update their own gas only"
-  participant(p): "org.vela.gas.User"
-  operation: READ, UPDATE
-  resource(r): "org.vela.gas.Gas"
-  condition: (p.getIdentifier() == r.owner.getIdentifier())
-  action: ALLOW
-}
-
-rule UserSeeAll {
-  description: "User can see all tranfer"
-  participant: "org.vela.gas.User"
-  operation: READ
-  resource: "org.hyperledger.composer.system.**"
-  action: ALLOW
-}
-
-rule UserCanWithdraw {
-  description: "User can see and update their own gas only"
-  participant: "org.vela.gas.User"
-  operation: ALL
-  resource: "org.vela.gas.WithdrawGas"
-  action: ALLOW
-}
-
-rule UserCanUpdateRecord {
-  description: "User can see and update record"
-  participant: "org.vela.gas.User"
-  operation: ALL
-  resource: "org.hyperledger.composer.system.HistorianRecord"
-  action: ALLOW
-}

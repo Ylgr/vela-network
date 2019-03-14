@@ -1,21 +1,13 @@
 namespace org.vela.adReport
 
-import org.vela.gas.Gas
-
-participant Advertiser identified by id {
-  o String id
-  o String name
-}
-
 asset AdReport identified by id {
-  --> Advertiser advertiser
-  --> Gas wallet
   o String id
   o String name
   o String data
   o Long click
   o Long impression
   o Long cv
+  o Boolean isActive
   o UserInfo[] userActions optional
 }
 
@@ -47,4 +39,9 @@ transaction ConversionTracking {
   --> AdReport adReport
   o String ip
   o String name
+}
+
+transaction ChangeAdStatus {
+  --> AdReport adReport
+  o Boolean isActive
 }
