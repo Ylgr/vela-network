@@ -4,9 +4,10 @@ asset AdReport identified by id {
   o String id
   o String name
   o String data
-  o Long click
-  o Long impression
-  o Long cv
+  o String url
+  o Long click default = 0
+  o Long impression default = 0
+  o Long cv default = 0
   o Boolean isActive
   o UserInfo[] userActions optional
 }
@@ -22,7 +23,7 @@ concept UserInfo {
   o String name
   o UserActionType type
 }
-
+  
 transaction ImpressionTracking {
   --> AdReport adReport
   o String ip
@@ -44,4 +45,11 @@ transaction ConversionTracking {
 transaction ChangeAdStatus {
   --> AdReport adReport
   o Boolean isActive
+}
+  
+transaction UpdateAd {
+  --> AdReport ad
+  o String name
+  o String data
+  o String url
 }
