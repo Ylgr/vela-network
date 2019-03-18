@@ -11,7 +11,7 @@ participant Advertiser identified by id {
 
 asset Gas identified by id {
   o String id
-  o Double amount
+  o Double amount default = 0.0
   --> AdReport[] reports optional
   o GasTransaction[] transactions optional
 }
@@ -61,4 +61,10 @@ event TransactionCompleted {
 transaction AddReport {
   --> Gas wallet
   --> AdReport report
+}
+
+transaction ClickTracking {
+  --> AdReport ad
+  --> Gas paymentWallet
+  --> Gas rewardWallet
 }

@@ -23,24 +23,6 @@ concept UserInfo {
   o String name
   o UserActionType type
 }
-  
-transaction ImpressionTracking {
-  --> AdReport adReport
-  o String ip
-  o String name
-}
-
-transaction ClickTracking {
-  --> AdReport adReport
-  o String ip
-  o String name
-}
-
-transaction ConversionTracking {
-  --> AdReport adReport
-  o String ip
-  o String name
-}
 
 transaction ChangeAdStatus {
   --> AdReport adReport

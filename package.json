@@ -3,7 +3,7 @@
     "composer": "^0.20.5"
   },
   "name": "vela-network",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A system blockchain working for marketing",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/vela-network.bna",
