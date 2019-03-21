@@ -6,7 +6,7 @@ participant Advertiser identified by id {
   o String id
   o String name
   --> Gas[] wallets
-  o String[] adSeem optional
+  o String[] AdsClicked optional
 }
 
 asset Gas identified by id {
@@ -29,6 +29,7 @@ enum GasTransactionType {
   o USING
   o REWARD
   o BACK
+  o BURN
 }
 
 transaction DepositGas {

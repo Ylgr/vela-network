@@ -3,11 +3,12 @@ namespace org.vela.adReport
 asset AdReport identified by id {
   o String id
   o String name
+  o String contents
   o String data
   o String url
+  o Category category
   o Long click default = 0
   o Long impression default = 0
-  o Long cv default = 0
   o Boolean isActive
   o UserInfo[] userActions optional
 }
@@ -15,9 +16,17 @@ asset AdReport identified by id {
 enum UserActionType {
   o CLICK
   o IMPRESSION
-  o CV
 }
 
+enum Category {
+  o SPORT
+  o FASHION
+  o BEAUTY
+  o EVENT
+  o TECHNOLOGY
+  o DECORATE
+}
+  
 concept UserInfo {
   o String ip
   o String name
