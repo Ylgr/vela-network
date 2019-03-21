@@ -26,7 +26,7 @@ enum Category {
   o TECHNOLOGY
   o DECORATE
 }
-  
+ 
 concept UserInfo {
   o String ip
   o String name
@@ -42,5 +42,7 @@ transaction UpdateAd {
   --> AdReport ad
   o String name
   o String data
+  o String contents
   o String url
+  o Category category
 }
