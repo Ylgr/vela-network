@@ -8,14 +8,14 @@ asset AdReport identified by id {
   o String url
   o Category category
   o Long click default = 0
-  o Long impression default = 0
+  o Long view default = 0
   o Boolean isActive
   o UserInfo[] userActions optional
 }
 
 enum UserActionType {
   o CLICK
-  o IMPRESSION
+  o VIEW
 }
 
 enum Category {
@@ -28,7 +28,6 @@ enum Category {
 }
  
 concept UserInfo {
-  o String ip
   o String name
   o UserActionType type
 }
