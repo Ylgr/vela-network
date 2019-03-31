@@ -1,0 +1,13 @@
+query GetAllActiveAd {
+    description: "Select ads has status = active"
+    statement:
+        SELECT org.vela.adReport.AdReport
+            WHERE (isActive == true)
+}
+
+query GetRewardableWallet {
+    description: "Select wallet has status = active"
+    statement:
+        SELECT org.vela.gas.Gas
+            WHERE (amount > 5)
+}
