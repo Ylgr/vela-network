@@ -68,6 +68,7 @@ transaction ClickTracking {
   --> Advertiser viewer
   --> AdReport ad
   --> Gas paymentWallet
+  --> Gas publishWallet
   --> Gas rewardWallet
 }
 
