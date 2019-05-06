@@ -6,7 +6,12 @@ participant Advertiser identified by id {
   o String id
   o String name
   --> Gas[] wallets
-  o String[] AdsClicked optional
+  o ActiveTime[] AdsClicked optional
+}
+
+concept ActiveTime {
+  o String adId
+  o Long time
 }
 
 asset Gas identified by id {
@@ -27,8 +32,8 @@ enum GasTransactionType {
   o SEND
   o RECEIVE
   o PAY
-  o REWARD
-  o BACK
+  o REWARD_CLICK
+  o REWARD_RECOMMEND
   o BURN
 }
 
@@ -76,5 +81,6 @@ transaction ViewTracking {
   --> Advertiser viewer
   --> AdReport ad
   --> Gas paymentWallet
+  --> Gas publishWallet
   --> Gas rewardWallet
 }
